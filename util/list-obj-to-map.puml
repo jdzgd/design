@@ -1,0 +1,10 @@
+@startuml
+'List<obj> to map(obj.name,obj.value)
+'obj: name,value,type
+
+list_obj -> map: obj
+map -> factory: obj
+factory -> converter: obj.type , obj.value
+converter --> factory: obj.type找出的converter转换obj.value
+factory --> map: obj.value
+@enduml
