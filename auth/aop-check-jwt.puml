@@ -1,0 +1,7 @@
+@startuml
+
+user -> aopAround: 拦截request.getHeader/request.getParameter 获取token,判断token.startsWith "Bearer "
+aopAround -> JWT: 解密并获取claims.getId,判断时间是否过期
+JWT -> Authentication对象: 将userId和token分别存入2个ThreadLocal
+
+@enduml
